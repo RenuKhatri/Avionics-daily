@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{{projects}}
+<!--<div class="tab-pane active" id="tabsPRY" role="tablist">-->
+
+    <div id="tabsPRY">
+
+        <div class="PRYInnerContent" id="innerContentTab" name="innerContentTab">
+
+            <ul class="nav nav-tabs d-block mb-4">
+                <li class="d-inline-block">
+                    <a class="d-block" href="/job-dashboard">PRY Data Analysis Dashboard</a>
+                </li>
+                <li class="d-inline-block {% if request.resolver_match.view_name == 'job-dashboard' %}active{% endif %}">
+                    <a class="d-inline-block active" href="/job-dashboard">Job Dashboard</a>
+                </li>
+                <li class="d-inline-block {% if request.resolver_match.view_name == 'template-details' %}active{% endif %}">
+                    <a class="d-block" href="/template-details">Template Details</a>
+                </li>
+                <li class="d-inline-block {% if request.resolver_match.view_name == 'template-configuration' %}active{% endif %}">
+                    <a class="d-block" href="/template-configuration">Template Configuration</a>
+                </li>
+                <li class="d-inline-block {% if request.resolver_match.view_name == 'notification-config' %}active{% endif %}">
+                    <a class="d-block" href="/notification-config">Notification Configuration</a>
+                </li>
+            </ul>
+
+        </div>
+
+        {% block content2 %} {% endblock content2 %}
+
+    </div>
+
+<!--</div>-->
+
+{% endblock %}
